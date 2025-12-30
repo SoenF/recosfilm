@@ -165,13 +165,18 @@
 
 @media (max-width: 768px) {
     .modal-backdrop {
-        padding: 0;
-        align-items: flex-end;
+        padding: var(--space-md);
+        align-items: center;
+        /* Center vertically to avoid clipping top */
     }
 
     .modal-content {
-        max-height: 95vh;
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        max-height: 85vh;
+        /* Reduce max height to ensure space for close button */
+        border-radius: var(--radius-lg);
+        /* Full rounded corners */
+        margin: auto;
+        /* Center horizontally */
         /* Smooth scroll on mobile */
         -webkit-overflow-scrolling: touch;
     }
