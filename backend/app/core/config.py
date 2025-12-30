@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     RELOAD: bool = True
     
     # CORS
-    CORS_ORIGINS: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    CORS_ORIGINS: list[str] = ["*"]
     
     # Embedding Model
     EMBEDDING_MODEL_NAME: str = "all-MiniLM-L6-v2"
