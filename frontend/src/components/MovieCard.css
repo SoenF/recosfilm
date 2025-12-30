@@ -228,34 +228,29 @@
         margin-top: 2px;
     }
 
-    .genre-badge {
+    .movie-card .genre-badge {
         display: flex;
-        /* Flex to center icon */
         align-items: center;
         justify-content: center;
         padding: 4px;
         background: var(--bg-secondary);
-        /* Dark circle background */
         color: #ffffff !important;
-        /* Icon color forced to white for visibility */
         border-radius: 50%;
-        /* Circle shape */
         width: 24px;
-        /* Slightly bigger */
         height: 24px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Remove comma separator logic for icons */
-    .genre-badge:not(:last-child)::after {
+    .movie-card .genre-badge:not(:last-child)::after {
         content: none;
     }
 
-    .genre-text {
+    .movie-card .genre-text {
         display: none;
     }
 
-    .genre-icon {
+    .movie-card .genre-icon {
         display: flex !important;
         align-items: center;
         justify-content: center;
