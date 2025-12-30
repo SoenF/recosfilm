@@ -422,3 +422,48 @@ h2 {
         display: none;
     }
 }
+
+/* Genre Legend */
+.genre-legend {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.genre-legend h4 {
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legend-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.legend-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+    /* Icons are white */
+}

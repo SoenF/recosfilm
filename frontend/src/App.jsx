@@ -9,6 +9,7 @@ import TopRatedPage from './components/TopRatedPage';
 import ActorPage from './components/ActorPage';
 import WatchLaterPage from './components/WatchLaterPage';
 import DiscoverPage from './components/DiscoverPage';
+import GenreLegend from './components/GenreLegend';
 import './App.css';
 
 function App() {
@@ -266,6 +267,7 @@ function App() {
                             <p>Obtenez des recommandations personnalisées basées sur l'IA</p>
                         </div>
                     </div>
+                    <GenreLegend />
                 </section>
             )}
 
