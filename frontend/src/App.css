@@ -18,9 +18,13 @@
 }
 
 .app-header.scrolled {
+    background: rgba(2, 26, 54, 0.95);
     padding: var(--space-sm) 0;
-    background: rgba(26, 26, 46, 0.95);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.app-header.header-hidden {
+    transform: translateY(-100%);
 }
 
 .header-content {

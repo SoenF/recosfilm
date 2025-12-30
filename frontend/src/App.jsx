@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import ApiService from './services/api';
 import SearchBar from './components/SearchBar';
 import MovieCard from './components/MovieCard';
@@ -24,6 +24,15 @@ function App() {
     const [showIntro, setShowIntro] = useState(window.innerWidth > 768);
     const [scrolled, setScrolled] = useState(false);
     const [watchLater, setWatchLater] = useState([]);
+    const [headerHidden, setHeaderHidden] = useState(false);
+    const lastScrollY = useCallback((node) => {
+        if (node !== null) {
+            // This is a dummy ref callback usage? No, useRef is better for value storage
+        }
+    }, []);
+
+    // Use a ref for lastScrollY to avoid re-renders just for tracking position
+    const lastScrollPos = useRef(0);
 
     const [filters, setFilters] = useState({});
 
@@ -57,11 +66,23 @@ function App() {
     // Handle scroll for header
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
+            const currentScrollY = window.scrollY;
+
+            // Background transparency logic
+            if (currentScrollY > 50) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
             }
+
+            // Hide/Show logic
+            if (currentScrollY > lastScrollPos.current && currentScrollY > 100) {
+                setHeaderHidden(true); // Scrolling down
+            } else {
+                setHeaderHidden(false); // Scrolling up
+            }
+
+            lastScrollPos.current = currentScrollY;
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -367,7 +388,7 @@ function App() {
     return (
         <div className="app">
             {/* Header */}
-            <header className={`app-header ${scrolled ? 'scrolled' : ''}`}>
+            <header className={`app-header ${scrolled ? 'scrolled' : ''} ${headerHidden ? 'header-hidden' : ''}`}>
                 <div className="container">
                     <div className="header-content">
                         <div className="logo-section" onClick={() => setCurrentView('home')} style={{ cursor: 'pointer' }}>

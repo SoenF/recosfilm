@@ -194,10 +194,17 @@
     }
 
     .modal-close {
+        position: fixed;
+        /* Fix to viewport so it's always accessible */
         width: 44px;
         height: 44px;
         top: var(--space-sm);
         right: var(--space-sm);
+        background: rgba(0, 0, 0, 0.7);
+        /* Darker background for visibility */
+        z-index: 1001;
+        /* Ensure above content */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .modal-meta {
