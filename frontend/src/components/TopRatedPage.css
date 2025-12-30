@@ -1,0 +1,44 @@
+.page-container {
+    padding: var(--space-lg) 0;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.genre-selector {
+    min-width: 200px;
+}
+
+.ranked-movie-card {
+    position: relative;
+    transition: transform var(--transition-normal);
+}
+
+.ranked-movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.rank-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: var(--accent-gradient);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--bg-card);
+}
