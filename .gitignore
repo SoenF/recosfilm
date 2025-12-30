@@ -35,11 +35,11 @@ dist/
 .env.*.local
 
 # Data
-backend/data/
-*.npy
-*.bin
-*.db
-*.sqlite
+# backend/data/
+# *.npy
+# *.bin
+# *.db
+# *.sqlite
 
 # IDE
 .idea/
