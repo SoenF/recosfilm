@@ -166,8 +166,12 @@
 @media (max-width: 768px) {
     .modal-backdrop {
         padding: var(--space-md);
-        align-items: center;
-        /* Center vertically to avoid clipping top */
+        align-items: flex-start;
+        /* Start from top to avoid clipping */
+        padding-top: 60px;
+        /* Space for the fixed close button */
+        overflow-y: auto;
+        /* Allow scrolling */
     }
 
     .modal-content {
@@ -199,15 +203,13 @@
     }
 
     .modal-close {
-        position: absolute;
-        /* Relative to backdrop */
+        position: fixed;
         width: 44px;
         height: 44px;
-        top: var(--space-sm);
-        right: var(--space-sm);
+        top: 20px;
+        right: 20px;
         background: rgba(0, 0, 0, 0.7);
-        z-index: 2000;
-        /* Higher than content */
+        z-index: 2100;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
