@@ -81,7 +81,7 @@ function App() {
         } catch (err) {
             setError({
                 type: 'connection_error',
-                message: 'Impossible de se connecter au serveur backend. Assurez-vous qu\'il est démarré sur http://localhost:8000',
+                message: `Impossible de se connecter au serveur backend (${import.meta.env.VITE_API_URL || 'localhost'}). Vérifiez la connexion.`,
             });
         }
     };
