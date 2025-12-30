@@ -236,13 +236,14 @@
         padding: 4px;
         background: var(--bg-secondary);
         /* Dark circle background */
-        color: var(--text-secondary);
-        /* Icon color */
+        color: #ffffff !important;
+        /* Icon color forced to white for visibility */
         border-radius: 50%;
         /* Circle shape */
-        width: 20px;
-        height: 20px;
-        border: 1px solid var(--border-color);
+        width: 24px;
+        /* Slightly bigger */
+        height: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Remove comma separator logic for icons */

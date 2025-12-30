@@ -31,7 +31,7 @@ const GenreIcon = ({ genre }) => {
     };
 
     return (
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             {getIconPath(genre)}
         </svg>
     );
