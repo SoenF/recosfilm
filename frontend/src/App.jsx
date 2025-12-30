@@ -23,6 +23,7 @@ function App() {
     const [systemStatus, setSystemStatus] = useState(null);
     // Hide intro by default on mobile
     const [showIntro, setShowIntro] = useState(window.innerWidth > 768);
+    const [showLegend, setShowLegend] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [watchLater, setWatchLater] = useState([]);
     const [headerHidden, setHeaderHidden] = useState(false);
@@ -267,7 +268,6 @@ function App() {
                             <p>Obtenez des recommandations personnalisées basées sur l'IA</p>
                         </div>
                     </div>
-                    <GenreLegend />
                 </section>
             )}
 
@@ -278,6 +278,29 @@ function App() {
                         <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                     </svg>
                     Comment ça marche ?
+                </button>
+            )}
+
+            {/* Legend Section */}
+            {showLegend ? (
+                <section className="intro-section fade-in" style={{ marginTop: '1rem' }}>
+                    <div className="intro-toggle" onClick={() => setShowLegend(false)}>
+                        <h2>Légende des genres</h2>
+                        <button className="collapse-btn" aria-label="Masquer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 15l-6-6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <GenreLegend />
+                </section>
+            ) : (
+                <button className="show-intro-btn" onClick={() => setShowLegend(true)} style={{ marginTop: '0.5rem' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                        <path d="M12 16v-4M12 8h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                    Légende des genres
                 </button>
             )}
 
