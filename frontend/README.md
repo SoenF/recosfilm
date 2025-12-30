@@ -1,6 +1,6 @@
-# 🎬 CinéMatch - Frontend React
+# 🎬 RecoFilms - Frontend React
 
-Frontend moderne pour le système de recommandation de films CinéMatch.
+Frontend moderne pour le système de recommandation de films RecoFilms.
 
 ## 🎨 Design
 

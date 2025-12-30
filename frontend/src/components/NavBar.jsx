@@ -1,24 +1,25 @@
 import './NavBar.css';
 
 function NavBar({ currentView, setView }) {
+    const tabs = [
+        { id: 'home', label: 'Accueil', shortLabel: 'Accueil' },
+        { id: 'top-rated', label: 'Top Films', shortLabel: 'Top' },
+        { id: 'discover', label: 'Découvrir', shortLabel: 'Découvrir' },
+        { id: 'actors', label: 'Acteurs', shortLabel: 'Acteurs' },
+        { id: 'watch-later', label: 'À regarder plus tard', shortLabel: 'Plus tard' }
+    ];
+
     return (
         <nav className="nav-bar">
             <ul>
-                <li className={currentView === 'home' ? 'active' : ''}>
-                    <button onClick={() => setView('home')}>Accueil</button>
-                </li>
-                <li className={currentView === 'top-rated' ? 'active' : ''}>
-                    <button onClick={() => setView('top-rated')}>Top Films</button>
-                </li>
-                <li className={currentView === 'discover' ? 'active' : ''}>
-                    <button onClick={() => setView('discover')}>Découvrir</button>
-                </li>
-                <li className={currentView === 'actors' ? 'active' : ''}>
-                    <button onClick={() => setView('actors')}>Acteurs</button>
-                </li>
-                <li className={currentView === 'watch-later' ? 'active' : ''}>
-                    <button onClick={() => setView('watch-later')}>À regarder plus tard</button>
-                </li>
+                {tabs.map(tab => (
+                    <li key={tab.id} className={currentView === tab.id ? 'active' : ''}>
+                        <button onClick={() => setView(tab.id)}>
+                            <span className="tab-full">{tab.label}</span>
+                            <span className="tab-short">{tab.shortLabel}</span>
+                        </button>
+                    </li>
+                ))}
             </ul>
         </nav>
     );

@@ -1,5 +1,7 @@
 import './MovieCard.css';
 
+import GenreIcon from './GenreIcon';
+
 function MovieCard({ movie, onClick, onSelect, isSelected = false, showScore = false, onToggleWatchLater, isWatchLater = false }) {
     const posterUrl = movie.poster_path || movie.poster_url || 'https://via.placeholder.com/300x450?text=No+Poster';
     const rating = movie.vote_average || 0;
@@ -93,7 +95,12 @@ function MovieCard({ movie, onClick, onSelect, isSelected = false, showScore = f
                 {movie.genres && movie.genres.length > 0 && (
                     <div className="movie-genres">
                         {movie.genres.slice(0, 3).map((genre, index) => (
-                            <span key={index} className="genre-badge">{genre}</span>
+                            <span key={index} className="genre-badge">
+                                <span className="genre-text">{genre}</span>
+                                <span className="genre-icon" title={genre}>
+                                    <GenreIcon genre={genre} />
+                                </span>
+                            </span>
                         ))}
                     </div>
                 )}

@@ -63,3 +63,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+@media (max-width: 768px) {
+    .character-name {
+        font-size: 0.65rem;
+    }
+}

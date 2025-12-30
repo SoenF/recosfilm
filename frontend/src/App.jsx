@@ -20,7 +20,8 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [systemStatus, setSystemStatus] = useState(null);
-    const [showIntro, setShowIntro] = useState(true);
+    // Hide intro by default on mobile
+    const [showIntro, setShowIntro] = useState(window.innerWidth > 768);
     const [scrolled, setScrolled] = useState(false);
     const [watchLater, setWatchLater] = useState([]);
 
@@ -216,10 +217,17 @@ function App() {
 
     const renderHome = () => (
         <>
-            {/* Intro Section */}
+            {/* Intro Section - Collapsible */}
             {showIntro && (
                 <section className="intro-section fade-in">
-                    <h2>Comment ça marche ?</h2>
+                    <div className="intro-toggle" onClick={() => setShowIntro(false)}>
+                        <h2>Comment ça marche ?</h2>
+                        <button className="collapse-btn" aria-label="Masquer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 15l-6-6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
                     <div className="steps-grid">
                         <div className="step-card">
                             <div className="step-number">1</div>
@@ -238,6 +246,16 @@ function App() {
                         </div>
                     </div>
                 </section>
+            )}
+
+            {/* Show intro button when collapsed */}
+            {!showIntro && (
+                <button className="show-intro-btn" onClick={() => setShowIntro(true)}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                    Comment ça marche ?
+                </button>
             )}
 
             {/* Search Bar */}
@@ -363,7 +381,7 @@ function App() {
                                 </svg>
                             </div>
                             <div>
-                                <h1>CinéMatch</h1>
+                                <h1>RecoFilms</h1>
                                 <p className="tagline">Découvrez vos prochains films préférés</p>
                             </div>
                         </div>

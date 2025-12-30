@@ -303,27 +303,118 @@ h2 {
     }
 
     .intro-section {
-        padding: var(--space-lg) 0;
+        padding: var(--space-md) 0;
+        margin-bottom: var(--space-md);
+    }
+
+    .intro-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: var(--space-md);
+    }
+
+    .intro-toggle h2 {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+    }
+
+    .collapse-btn {
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: var(--radius-full);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .collapse-btn:hover {
+        border-color: var(--accent-primary);
+    }
+
+    .show-intro-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        width: 100%;
+        margin-bottom: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: var(--bg-card);
+        border: 2px dashed var(--border-color);
+        border-radius: var(--radius-md);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .show-intro-btn:hover {
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
     }
 
     .steps-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .step-card {
+        padding: var(--space-md);
     }
 
     main {
-        padding: var(--space-lg) var(--space-md);
+        padding: var(--space-md) var(--space-xs);
     }
 
     .recommendations-section {
         padding: var(--space-md);
+        margin-bottom: var(--space-md);
     }
 
     .section-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .section-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
     }
 
     .section-header .btn {
         width: 100%;
+        min-height: 48px;
+    }
+
+    /* Better touch targets */
+    .btn {
+        min-height: 44px;
+        padding: var(--space-md) var(--space-lg);
+    }
+
+    /* Hide intro by default on mobile */
+    .intro-section {
+        display: block;
+    }
+}
+
+/* Desktop - always show collapse controls */
+@media (min-width: 769px) {
+    .intro-toggle {
+        display: block;
+    }
+
+    .collapse-btn,
+    .show-intro-btn {
+        display: none;
     }
 }

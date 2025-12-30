@@ -55,6 +55,9 @@
     transition: all var(--transition-normal);
     z-index: 10;
     opacity: 0.8;
+    /* Ensure touch events work properly */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .select-btn:hover {
@@ -90,6 +93,9 @@
     z-index: 10;
     opacity: 0;
     transform: translateY(10px);
+    /* Ensure touch events work properly */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .movie-card:hover .watch-later-btn,
@@ -109,6 +115,159 @@
     border-color: white;
     box-shadow: 0 0 15px rgba(245, 87, 108, 0.5);
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+
+    /* Smaller buttons that don't hide the poster */
+    .select-btn {
+        top: 4px;
+        right: 4px;
+        width: 24px;
+        height: 24px;
+        border-width: 1px;
+        opacity: 0.85;
+    }
+
+    .select-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .watch-later-btn {
+        bottom: 4px;
+        right: 4px;
+        width: 24px;
+        height: 24px;
+        border-width: 1px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .watch-later-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Disable hover transform on mobile */
+    .select-btn:hover,
+    .watch-later-btn:hover {
+        transform: none;
+    }
+
+    /* Active state feedback for touch */
+    .select-btn:active {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    .watch-later-btn:active {
+        transform: scale(0.9);
+    }
+
+    /* Compact card layout */
+    .movie-card {
+        border-width: 1px;
+    }
+
+    .movie-title {
+        font-size: 0.75rem;
+        /* Slightly larger for readability */
+        min-height: auto;
+        font-weight: 600;
+        margin-bottom: 4px;
+        /* Allow full title display */
+        display: block;
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+        white-space: normal;
+        height: auto;
+    }
+
+    .movie-info {
+        padding: 4px;
+    }
+
+    .movie-meta {
+        font-size: 0.65rem;
+        gap: 3px;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+    }
+
+    .movie-year,
+    .movie-rating {
+        font-size: 0.65rem;
+    }
+
+    .movie-rating svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .movie-runtime {
+        display: none;
+    }
+
+    .movie-score {
+        font-size: 0.65rem;
+        padding: 1px 3px;
+    }
+
+    /* Compact genres - Icons only on mobile */
+    .movie-genres {
+        display: flex !important;
+        background: transparent;
+        padding: 0;
+        gap: 6px;
+        overflow: visible;
+        white-space: normal;
+        margin-top: 2px;
+    }
+
+    .genre-badge {
+        display: flex;
+        /* Flex to center icon */
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        background: var(--bg-secondary);
+        /* Dark circle background */
+        color: var(--text-secondary);
+        /* Icon color */
+        border-radius: 50%;
+        /* Circle shape */
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--border-color);
+    }
+
+    /* Remove comma separator logic for icons */
+    .genre-badge:not(:last-child)::after {
+        content: none;
+    }
+
+    .genre-text {
+        display: none;
+    }
+
+    .genre-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .movie-poster {
+        aspect-ratio: 2/3;
+    }
+}
+
+/* Desktop Styles for Genre Icons (Hidden) */
+.genre-icon {
+    display: none;
+}
+
 
 .movie-card.selected {
     border-color: var(--accent-primary);

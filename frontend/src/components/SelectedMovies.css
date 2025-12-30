@@ -57,10 +57,21 @@
 
     .get-recommendations-btn {
         width: 100%;
+        min-height: 48px;
+        /* Larger touch target */
+        font-size: 1rem;
     }
 
     .selected-movies-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .selected-movies-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xs);
     }
 }
 
@@ -89,6 +100,7 @@
     width: 100%;
     height: 6px;
     -webkit-appearance: none;
+    appearance: none;
     background: var(--bg-secondary);
     border-radius: var(--radius-full);
     outline: none;

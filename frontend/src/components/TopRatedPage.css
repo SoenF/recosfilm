@@ -42,3 +42,42 @@
     box-shadow: var(--shadow-md);
     border: 2px solid var(--bg-card);
 }
+
+@media (max-width: 768px) {
+    .rank-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+        top: -5px;
+        left: -5px;
+    }
+
+    .page-container {
+        padding: var(--space-md) 0;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .genre-selector,
+    .title-section,
+    .discover-controls {
+        width: 100%;
+    }
+
+    /* Force 4 columns on mobile specifically for Top Rated page items */
+    .movies-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: var(--space-xs) !important;
+    }
+
+    /* Ensure card container doesn't block layout */
+    .ranked-movie-card {
+        width: 100%;
+        min-width: 0;
+    }
+}

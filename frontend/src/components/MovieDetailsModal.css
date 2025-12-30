@@ -164,6 +164,18 @@
 }
 
 @media (max-width: 768px) {
+    .modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        /* Smooth scroll on mobile */
+        -webkit-overflow-scrolling: touch;
+    }
+
     .modal-grid {
         grid-template-columns: 1fr;
         gap: 0;
@@ -179,5 +191,20 @@
 
     .modal-title {
         font-size: 1.8rem;
+    }
+
+    .modal-close {
+        width: 44px;
+        height: 44px;
+        top: var(--space-sm);
+        right: var(--space-sm);
+    }
+
+    .modal-meta {
+        font-size: 0.95rem;
+    }
+
+    .modal-overview {
+        font-size: 1rem;
     }
 }

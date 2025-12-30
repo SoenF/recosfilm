@@ -219,6 +219,10 @@ h3 {
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
+  /* Better touch interactions */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .btn-primary {
@@ -342,6 +346,11 @@ h3 {
   .grid-3,
   .grid-4,
   .grid-5 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+  }
+
+  .grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -356,11 +365,39 @@ h3 {
 
 @media (max-width: 480px) {
 
-  .grid-2,
   .grid-3,
   .grid-4,
   .grid-5 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    padding: 0 var(--space-xs);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    /* Prevent zoom on iOS inputs */
   }
 }
 

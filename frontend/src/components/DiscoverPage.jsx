@@ -92,7 +92,6 @@ function DiscoverPage({ onMovieClick, onMovieSelect, isMovieSelected, onToggleWa
                             className="filter-select"
                         >
                             <option value="popularity.desc">Plus Populaires</option>
-                            // Sort by vote count to see the most discussed ones
                             <option value="vote_count.desc">Plus de Critiques</option>
                             <option value="revenue.desc">Plus Gros Succès</option>
                         </select>

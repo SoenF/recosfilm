@@ -23,6 +23,11 @@
     cursor: pointer;
     position: relative;
     transition: color var(--transition-fast);
+    white-space: nowrap;
+    min-height: 44px;
+    /* iOS touch target minimum */
+    display: flex;
+    align-items: center;
 }
 
 .nav-bar button:hover {
@@ -42,4 +47,38 @@
     height: 2px;
     background: var(--accent-primary);
     box-shadow: 0 0 10px var(--accent-primary);
+}
+
+/* Tab labels - show full on desktop, short on mobile */
+.tab-short {
+    display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nav-bar {
+        margin-bottom: var(--space-md);
+        overflow-x: hidden;
+        /* No horizontal scroll */
+    }
+
+    .nav-bar ul {
+        justify-content: space-between;
+        gap: 0;
+        padding: 0 var(--space-xs);
+    }
+
+    .nav-bar button {
+        padding: var(--space-sm) var(--space-xs);
+        font-size: 0.75rem;
+    }
+
+    /* Show short labels on mobile */
+    .tab-full {
+        display: none;
+    }
+
+    .tab-short {
+        display: inline;
+    }
 }

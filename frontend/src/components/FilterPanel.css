@@ -148,3 +148,31 @@
     background: var(--bg-secondary);
     color: var(--accent-primary);
 }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .filter-panel {
+        padding: var(--space-md);
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .filter-input,
+    .filter-select {
+        min-height: 44px;
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+    }
+
+    .range-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .range-separator {
+        display: none;
+    }
+}
